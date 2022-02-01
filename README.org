@@ -1,10 +1,10 @@
 * Spring 2022 235 Assignments
 
-* Last name:
+* Last name: Lu
 
-* First name:
+* First name: Randy
 
-* GitHub username:
+* GitHub username: RandyLu0
 
 * Notes:
 
