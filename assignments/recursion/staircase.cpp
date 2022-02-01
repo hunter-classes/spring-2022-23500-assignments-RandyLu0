@@ -1,5 +1,5 @@
 /*
-Given an integer n determine the amount of lists whose sum is n
+Determine the amount of lists whose sum is positive integer n
 and whose elements are in the set {1, 2, 3} modulo 10^10 + 7.
 
 ex) n = 5 has 13 lists
