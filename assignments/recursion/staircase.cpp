@@ -24,11 +24,12 @@ ex) n = 5 has 13 lists
 #include <bits/stdc++.h>
 using std::cout;
 typedef unsigned long long ll; 
+#define M 10000000007ll
 
 // memoized
 ll steps(ll n, ll arr[]){
     if(arr[n]) return arr[n];
-    return arr[n] = (steps(n - 1, arr) % 10000000007ll + steps(n - 2, arr) % 10000000007ll + steps(n - 3, arr) % 10000000007ll) % 10000000007ll; 
+    return arr[n] = (steps(n - 1, arr) % M + steps(n - 2, arr) % M + steps(n - 3, arr) % M) % M; 
 }
 
 ll stairs(ll n){
@@ -45,12 +46,28 @@ int f(int n){
     if(n == 1) return 1;
     if(n == 2) return 2;
     if(n == 3) return 4;
-    return (f(n-1) % 10000000007ll + f(n-2) % 10000000007ll  + f(n-3) % 10000000007ll) % 10000000007ll;
+    return (f(n-1) % M + f(n-2) % M + f(n-3) % M) % M;
+}
+
+//bottom-up?
+ll iter(ll n){
+    ll a = 1, b = 2, c = 4, s = 0;
+    for (ll i = 3; i < n; i++){
+        s += (a % M + b % M + c % M) % M;
+        if(i == n - 1) break;
+        a = b % M;
+        b = c % M;
+        c = s % M;
+        s = 0;
+    }
+    return n == 3 ? 4 : n < 3 ? n : s % M;
 }
 
 int main(){
-    cout << stairs(5) << "\n";
-    cout << stairs(57) << "\n";
-    cout << stairs(90000) << "\n";
+    cout << stairs(11) << "\n";
+    //cout << iter(11) << "\n";
+    cout << stairs(570) << "\n";
+    //cout << iter(570) << "\n";
+    //cout << iter(900000) << "\n";
     return 0;
 }
