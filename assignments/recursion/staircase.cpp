@@ -34,18 +34,13 @@ ll steps(ll n, ll arr[]){
 
 ll stairs(ll n){
     ll arr[n + 1];
-    for(ll i = 0; i < n + 1; i++) arr[i] = 0;
-    arr[1] = 1;
-    arr[2] = 2;
-    arr[3] = 4;
+    for(ll i = 1; i < n + 1; i++) arr[i] = i <= 3 ? 1 << i - 1 : 0;
     return steps(n,arr);
 }
 
 //naive
 int f(int n){
-    if(n == 1) return 1;
-    if(n == 2) return 2;
-    if(n == 3) return 4;
+    if(n <= 3) return 1 << n - 1;
     return (f(n-1) % M + f(n-2) % M + f(n-3) % M) % M;
 }
 
@@ -60,14 +55,14 @@ ll iter(ll n){
         c = s % M;
         s = 0;
     }
-    return n == 3 ? 4 : n < 3 ? n : s % M;
+    return n <= 3 ? 1 << n - 1 : s;
 }
 
 int main(){
     cout << stairs(11) << "\n";
-    //cout << iter(11) << "\n";
+    cout << iter(3) << "\n";
     cout << stairs(570) << "\n";
-    //cout << iter(570) << "\n";
-    //cout << iter(900000) << "\n";
+    cout << iter(570) << "\n";
+    cout << iter(900000) << "\n";
     return 0;
 }
