@@ -2,42 +2,32 @@
 #include <unistd.h>
 using std::cout;
 
-
 const int n = 5;
 bool done = false;
-
 int arr[n][n];
 
-void init(){
-    for(int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            arr[i][j] = 0;
-}
+void init(){ for(int i = 0; i < n; i++) for (int j = 0; j < n; j++) arr[i][j] = 0; }
 
 void print(int x, int y){
-    //cout << "[0;0H\n";
-    cout << "_______________\n";    //ansi escape idk
-    for(int i = 0; i < n; i++){
+    cout << "_______________\n";   
+    for(int i = 0; i < n; i++)
         for (int j = 0; j < n; j++){
             if (i == x and j == y) cout << " N" << "|";
             else if(arr[i][j] >= 10) cout << arr[i][j] <<"|";
             else cout << " " << arr[i][j] << "|";
+            if(j + 1 == n) cout << "\n";
         }  
-        cout << "\n";   
-    }
+    cout << "_______________\n";   
 }
 
 bool check(){
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            if(arr[i][j] == 0) return false;        
+    for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) if(arr[i][j] == 0) return false;        
     return true;
 }
     
 
 void move(int x, int y, int i){
     arr[x][y] = i;
-    //usleep(1000000);
      if (check()){
         done = true;
         print(x,y);
@@ -55,12 +45,8 @@ void move(int x, int y, int i){
     return;
 }
 
-
-
-
 int main(){
     init();
     move(0,0,1);
-    cout << done << "\n";
     return 0;
 }
