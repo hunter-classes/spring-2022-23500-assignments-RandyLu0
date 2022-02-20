@@ -1,8 +1,7 @@
 #include <iostream>
-#include <unistd.h>
 using std::cout;
 
-const int n = 5;
+const int n = 8;
 bool done = false;
 int arr[n][n];
 
