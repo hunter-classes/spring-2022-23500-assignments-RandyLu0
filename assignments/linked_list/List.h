@@ -13,6 +13,8 @@ class List{
         ~List();
         void insert(int i, string s);
         void remove(int i); 
+        Node* locate(int i) const;
+        void reverse(Node *previous, Node *current);
         string toString() const;
 };
 

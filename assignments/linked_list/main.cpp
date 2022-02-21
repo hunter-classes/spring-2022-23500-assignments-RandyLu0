@@ -17,7 +17,10 @@ int main(){
     l1->insert(0,"p");
     l1->insert(1,"q");
     l1->insert(1,"r");
+    l1->insert(3,"s");
     l1->remove(2);
+    cout << l1->toString();
+    l1->reverse(nullptr,l1->locate(0));
     cout << l1->toString();
     delete l1;
 

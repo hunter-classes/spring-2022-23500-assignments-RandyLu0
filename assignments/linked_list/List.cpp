@@ -1,13 +1,11 @@
 #include "List.h"
 
-List::List(){
-    head = nullptr;
-    size = 0;
-}
+List::List(){ head = nullptr, size = 0; }
 
 List::~List(){
-    int s = size;
-    while(s-- >= 1) remove(s); 
+    int s = size - 1;
+    while(s--) remove(s); 
+    remove(0);
 } 
 
 void List::insert(int i, string s){
@@ -15,13 +13,11 @@ void List::insert(int i, string s){
     Node *node = new Node(s);
     Node *p = head;
     if(i == 0){
-        node->setNext(head);
-        head = node;
+        node->setNext(head), head = node;
         return;
     }
-    while(i-- > 1) p = p->getNext();
-    //middle
-    if(i + 1 != size) node->setNext(p->getNext());
+    while(--i) p = p->getNext();
+    node->setNext(p->getNext());
     p->setNext(node);
 }
 
@@ -30,15 +26,28 @@ void List::remove(int i){
     Node *p = head;
     if(i == 0){
         head = p->getNext();
-        delete p;
+        delete p, p = nullptr;
         return;    
     }
-    while(i-- > 1) p = p->getNext();
+    while(--i) p = p->getNext();
     Node *d = p->getNext();
-    //middle
-    if(i + 1 != size) p->setNext(d->getNext());
-    delete d;
-    d = nullptr;
+    p->setNext(d->getNext());
+    delete d, d = nullptr;
+}
+
+Node* List::locate(int i) const{
+    Node *p = head;
+    while(i--) p = p->getNext();
+    return p;
+}
+
+void List::reverse(Node* previous, Node *current){
+    if(current == nullptr){
+        head = previous;
+        return;
+    }
+    reverse(current,current->getNext());
+    current->setNext(previous);
 }
 
 string List::toString() const{
