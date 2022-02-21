@@ -7,10 +7,9 @@ using std::unique_ptr;
 
 int main(){
     unique_ptr<Node> p1 (new Node("s"));
-    Node *p2 = new Node("t");
+    unique_ptr<Node> p2 (new Node("t"));
     p1->setNext(p2);
     cout << typeid(p1).name()  << "\n";
     cout << p1->getData() << "\n";
-    //delete p1;
     return 0;
 }
