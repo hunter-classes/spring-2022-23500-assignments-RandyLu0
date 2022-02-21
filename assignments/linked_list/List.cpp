@@ -1,5 +1,4 @@
 #include "List.h"
-#include <iostream>
 
 List::List(){
     head = nullptr;
@@ -39,6 +38,7 @@ void List::remove(int i){
     //middle
     if(i + 1 != size) p->setNext(d->getNext());
     delete d;
+    d = nullptr;
 }
 
 string List::toString() const{

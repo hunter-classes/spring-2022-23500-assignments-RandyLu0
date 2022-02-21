@@ -4,6 +4,7 @@
 using std::cout;
 
 int main(){
+    
     Node *p1 = new Node("s");
     Node *p2 = new Node("t");
     p1->setNext(p2);
