@@ -12,11 +12,6 @@ Node::Node(string d, Node *n){
     setNext(n);
 }
 
-Node::~Node(){ 
-    delete this;
-
-}
-
 void Node::setData(string d){ data = d; }
 
 void Node::setNext(Node *n){ next = n; }

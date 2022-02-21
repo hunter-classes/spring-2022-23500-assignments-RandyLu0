@@ -13,7 +13,6 @@ class Node{
         Node();
         Node(string d);
         Node(string d, Node *n);
-        ~Node();
         void setData(string d);
         void setNext(Node *n);
         string getData() const;
