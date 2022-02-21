@@ -3,9 +3,8 @@
 List::List(){ head = nullptr, size = 0; }
 
 List::~List(){
-    int s = size - 1;
+    int s = size;
     while(s--) remove(s); 
-    remove(0);
 } 
 
 void List::insert(int i, string s){
