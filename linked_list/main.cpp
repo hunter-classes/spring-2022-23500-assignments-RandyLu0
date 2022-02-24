@@ -22,7 +22,8 @@ int main(){
     cout << l1->toString();
     l1->reverse(nullptr,l1->locate(0));
     cout << l1->toString();
-    l1->sort(0,2);
+    l1->insert(0,"z");
+    l1->sort(0,3);
     cout << l1->toString();
     delete l1, l1 = nullptr;
 

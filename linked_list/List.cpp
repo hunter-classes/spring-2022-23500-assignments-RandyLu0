@@ -62,15 +62,13 @@ string List::toString() const{
 }
 
 void List::sort(int a, int b){
+    //sort
     if(a == b) return;
     int k = floor(a + b) / 2;
     sort(a,k);
     sort(k+1,b);
-    merge(a,b);
-}
-
-void List::merge(int a, int b){
-    int k = floor(a + b) / 2;
+    
+    //merge
     Node *i = locate(a);
     Node *left = locate(a);
     Node *right = locate(k + 1); 

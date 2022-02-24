@@ -17,7 +17,6 @@ class List{
         void reverse(Node *previous, Node *current);
         string toString() const;
         void sort(int a, int b);
-        void merge(int a, int b);
 };
 
 #endif 
