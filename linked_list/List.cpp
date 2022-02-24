@@ -1,14 +1,17 @@
 #include "List.h"
 
-List::List(){ head = nullptr, size = 0; }
+List::List(){ head = nullptr; }
 
 List::~List(){
-    int s = size;
-    while(s--) remove(s); 
+    Node *p = head;
+    while(p){
+        Node *d = p;
+        p = p->getNext();
+        delete d, d = nullptr;
+    }   
 } 
 
 void List::insert(int i, string s){
-    ++size;
     Node *node = new Node(s);
     Node *p = head;
     if(i == 0){
@@ -21,7 +24,6 @@ void List::insert(int i, string s){
 }
 
 void List::remove(int i){
-    --size;
     Node *p = head;
     if(i == 0){
         head = p->getNext();
@@ -57,4 +59,36 @@ string List::toString() const{
         p = p->getNext(); 
     }
     return s + "nullptr\n";
+}
+
+void List::sort(int a, int b){
+    if(a == b) return;
+    int k = floor(a + b) / 2;
+    sort(a,k);
+    sort(k+1,b);
+    merge(a,b);
+}
+
+void List::merge(int a, int b){
+    int k = floor(a + b) / 2;
+    Node *i = locate(a);
+    Node *left = locate(a);
+    Node *right = locate(k+1); 
+    Node *end = locate(b + 1);
+    while(i != end){
+        auto t = i->getData();
+        auto l = left->getData();
+        auto r = right->getData();
+        if(t > l and r >= l){
+            i->setData(l);
+            left->setData(t);
+            left = left->getNext();
+        }else if (t > r and l > r){
+            i->setData(r);
+            right->setData(t);
+            if(i == left) left = right;
+            right = right->getNext();
+        }else left = left->getNext();
+        i = i->getNext();
+    }
 }

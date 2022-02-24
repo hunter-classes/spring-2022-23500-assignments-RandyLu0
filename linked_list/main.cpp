@@ -10,19 +10,21 @@ int main(){
     p1->setNext(p2);
     cout << typeid(p1).name()  << "\n";
     cout << p1->getData() << "\n";
-    delete p1;
-    delete p2;
+    delete p1, p1 = nullptr;
+    delete p2, p2 = nullptr;
 
     List *l1 = new List();
-    l1->insert(0,"p");
-    l1->insert(1,"q");
-    l1->insert(1,"r");
-    l1->insert(3,"s");
+    l1->insert(0,"a");
+    l1->insert(1,"b");
+    l1->insert(1,"c");
+    l1->insert(3,"d");
     l1->remove(2);
     cout << l1->toString();
     l1->reverse(nullptr,l1->locate(0));
     cout << l1->toString();
-    delete l1;
+    l1->sort(0,2);
+    cout << l1->toString();
+    delete l1, l1 = nullptr;
 
     return 0;
 }

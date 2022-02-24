@@ -3,11 +3,11 @@
 #define LIST_H
 
 #include "Node.h"
+#include <cmath>
 
 class List{
     private:
         Node *head;
-        int size;
     public:
         List();
         ~List();
@@ -16,6 +16,8 @@ class List{
         Node* locate(int i) const;
         void reverse(Node *previous, Node *current);
         string toString() const;
+        void sort(int a, int b);
+        void merge(int a, int b);
 };
 
 #endif 
