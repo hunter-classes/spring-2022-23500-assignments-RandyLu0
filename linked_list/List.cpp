@@ -73,8 +73,8 @@ void List::merge(int a, int b){
     int k = floor(a + b) / 2;
     Node *i = locate(a);
     Node *left = locate(a);
-    Node *right = locate(k+1); 
-    Node *end = locate(b + 1);
+    Node *right = locate(k + 1); 
+    Node *end = locate(b);
     while(i != end){
         auto t = i->getData();
         auto l = left->getData();
@@ -87,7 +87,7 @@ void List::merge(int a, int b){
             i->setData(r);
             right->setData(t);
             if(i == left) left = right;
-            right = right->getNext();
+            if(right != end) right = right->getNext();
         }else left = left->getNext();
         i = i->getNext();
     }
