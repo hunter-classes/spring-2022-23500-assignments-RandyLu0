@@ -17,8 +17,7 @@ void print(int x, int y){
             if(arr[i][j] >= 10) cout << arr[i][j] <<"|";
             else cout << " " << arr[i][j] << "|";
             if(j + 1 == n) cout << "\n";
-        }  
-    cout << "_______________\n";   
+        }   
 }
 
 bool check(){
@@ -45,11 +44,12 @@ void move(int x, int y, int i){
 }
 
 int main(){
+    cout << "All possible Knights Tour on 5x5 board\n"; 
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
         init();
         move(i,j,1);
         }
-    } 
+    }
     return 0;
 }
