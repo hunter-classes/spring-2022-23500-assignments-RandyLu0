@@ -14,8 +14,7 @@ void print(int x, int y){
     cout << "_______________\n";   
     for(int i = 0; i < n; i++)
         for (int j = 0; j < n; j++){
-            if (i == x and j == y) cout << " N" << "|";
-            else if(arr[i][j] >= 10) cout << arr[i][j] <<"|";
+            if(arr[i][j] >= 10) cout << arr[i][j] <<"|";
             else cout << " " << arr[i][j] << "|";
             if(j + 1 == n) cout << "\n";
         }  
