@@ -2,6 +2,7 @@
 
 * Due: TBD
 
+* No extra steps are needed for compiling and running the program  
 
 * Folder and files
 
@@ -45,5 +46,3 @@ attempt must be there.
 * Part 2 and beyond
 
 When additional parts are added they will be announced on Zulip
-
-* No extra steps are needed for compiling and running the program  
