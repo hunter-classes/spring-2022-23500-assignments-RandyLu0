@@ -17,7 +17,3 @@
   create and where to place them.
 - Projects will be in their own folders. Each assigned project will
   include the specific details required.
-
-  
-
-
