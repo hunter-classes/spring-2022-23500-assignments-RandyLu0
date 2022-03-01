@@ -145,3 +145,12 @@ void OList::reverse(){
     r(nullptr,head);
 }
 
+bool OList::contains(string value) const{
+    Node *p = head;
+    while(p){
+        if(p->getData() == value) return true;
+        p = p->getNext();
+    }
+    return false;
+}
+
