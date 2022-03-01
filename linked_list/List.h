@@ -19,4 +19,19 @@ class List{
         void sort(int a, int b);
 };
 
+class OList{
+    private:
+        Node *head;
+    public:
+        OList();
+        ~OList();
+        void insert(string value);
+        void remove(int loc); 
+        string get(int loc) const;
+        void reverse();
+        void r(Node *p, Node *c);
+        string toString() const;
+        bool contains(string value) const;
+};
+
 #endif 

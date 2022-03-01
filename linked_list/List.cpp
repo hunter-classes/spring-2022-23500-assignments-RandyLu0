@@ -90,3 +90,58 @@ void List::sort(int a, int b){
         i = i->getNext();
     }
 }
+
+OList::OList(){ head = nullptr; }
+
+OList::~OList(){
+    Node *p = head;
+    while(p){
+        Node *d = p;
+        p = p->getNext();
+        delete d, d = nullptr;
+    }   
+}
+
+string OList::toString() const{
+    Node *p = head;
+    string s = "";
+    while(p){
+        s += p->getData() + "-->";
+        p = p->getNext(); 
+    }
+    return s + "nullptr\n";
+}
+
+void OList::insert(string value){
+    Node *new_node = new Node(value);
+    Node *p = head;
+    Node *t = nullptr;
+    if(new_node->getData() < p->getData()){
+        new_node->setNext(head);
+        head = new_node;
+        return;
+    }
+    while(p){
+        t = p;
+        if(p->getData() < new_node->getData()){
+            t->setNext(new_node);
+            new_node->setNext(p);
+            return;
+        }
+        p = p->getNext();
+    }
+}
+
+void OList::r(Node* p, Node *c){
+    if(c == nullptr){
+        head = c;
+        return;
+    }
+    r(c,c->getNext());
+    c->setNext(p);
+}
+
+void OList::reverse(){
+    r(nullptr,head);
+}
+
