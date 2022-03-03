@@ -5,6 +5,7 @@ using std::cout;
 
 int main(){
     
+    /*
     Node *p1 = new Node("s");
     Node *p2 = new Node("t");
     p1->setNext(p2);
@@ -12,18 +13,18 @@ int main(){
     cout << p1->getData() << "\n";
     delete p1, p1 = nullptr;
     delete p2, p2 = nullptr;
+    */
 
-    List *l1 = new List();
-    l1->insert(0,"a");
-    l1->insert(1,"b");
-    l1->insert(1,"c");
-    l1->insert(3,"d");
-    l1->remove(2);
+    OList *l1 = new OList();
+    l1->insert("d");
+    l1->insert("c");
+    l1->insert("b");
+    l1->insert("a");
     cout << l1->toString();
-    l1->reverse(nullptr,l1->locate(0));
+    l1->remove(200);
+    cout << l1->contains("a") << "\n";
     cout << l1->toString();
-    l1->insert(0,"z");
-    l1->sort(0,3);
+    l1->reverse();
     cout << l1->toString();
     delete l1, l1 = nullptr;
 

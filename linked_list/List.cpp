@@ -94,10 +94,9 @@ void List::sort(int a, int b){
 OList::OList(){ head = nullptr; }
 
 OList::~OList(){
-    Node *p = head;
-    while(p){
-        Node *d = p;
-        p = p->getNext();
+    while(head){
+        Node *d = head;
+        head = head->getNext();
         delete d, d = nullptr;
     }   
 }
@@ -114,36 +113,30 @@ string OList::toString() const{
 
 void OList::insert(string value){
     Node *new_node = new Node(value);
-    Node *p = head;
-    Node *t = nullptr;
-    if(new_node->getData() < p->getData()){
-        new_node->setNext(head);
-        head = new_node;
-        return;
-    }
-    while(p){
-        t = p;
-        if(p->getData() < new_node->getData()){
-            t->setNext(new_node);
+    Node *p = head, *t = nullptr;
+    if(head == nullptr) head = new_node;
+    else while(p){
+        if(p->getData() > new_node->getData()){
             new_node->setNext(p);
+            if(p == head) head = new_node;
+            else t->setNext(new_node);
             return;
         }
+        t = p;
         p = p->getNext();
     }
 }
 
 void OList::r(Node* p, Node *c){
     if(c == nullptr){
-        head = c;
+        head = p;
         return;
     }
     r(c,c->getNext());
     c->setNext(p);
 }
 
-void OList::reverse(){
-    r(nullptr,head);
-}
+void OList::reverse(){ r(nullptr,head); }
 
 bool OList::contains(string value) const{
     Node *p = head;
@@ -154,3 +147,19 @@ bool OList::contains(string value) const{
     return false;
 }
 
+string OList::get(int loc) const{
+    Node *p = head;
+    while(loc-- and p->getNext()) p = p->getNext();
+    return p->getData();
+}
+
+void OList::remove(int loc){
+    Node *p = head, *t = nullptr;
+    while(loc-- and p->getNext()){
+        t = p;
+        p = p->getNext();
+    }
+    if(!loc) head = p->getNext();
+    else t->setNext(p->getNext());
+    delete p, p = nullptr;
+}
