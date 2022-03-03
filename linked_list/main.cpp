@@ -21,8 +21,8 @@ int main(){
     l1->insert("b");
     l1->insert("a");
     cout << l1->toString();
-    l1->remove(200);
-    cout << l1->contains("a") << "\n";
+    l1->remove(-200);
+    cout << l1->get(-10) << "\n";
     cout << l1->toString();
     l1->reverse();
     cout << l1->toString();

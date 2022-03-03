@@ -149,17 +149,17 @@ bool OList::contains(string value) const{
 
 string OList::get(int loc) const{
     Node *p = head;
-    while(loc-- and p->getNext()) p = p->getNext();
+    while(loc-- >  0 and p->getNext()) p = p->getNext();
     return p->getData();
 }
 
 void OList::remove(int loc){
     Node *p = head, *t = nullptr;
-    while(loc-- and p->getNext()){
+    while(loc-- > 0 and p->getNext()){
         t = p;
         p = p->getNext();
     }
-    if(!loc) head = p->getNext();
+    if(loc <= 0) head = p->getNext();
     else t->setNext(p->getNext());
     delete p, p = nullptr;
 }
