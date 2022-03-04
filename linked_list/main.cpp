@@ -20,9 +20,9 @@ int main(){
     l1->insert("c");
     l1->insert("b");
     l1->insert("a");
+    l1->insert("z");
     cout << l1->toString();
-    l1->remove(-200);
-    cout << l1->get(-10) << "\n";
+    l1->remove(2);
     cout << l1->toString();
     l1->reverse();
     cout << l1->toString();

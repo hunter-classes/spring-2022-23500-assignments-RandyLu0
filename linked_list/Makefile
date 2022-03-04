@@ -11,4 +11,4 @@ Node.o: Node.cpp Node.h
 List.o: List.cpp List.h Node.h
 	g++ -c List.cpp
 clean:
-	rm -f List.o main.o Node.o 
+	rm -f List.o main.o Node.o  test.o

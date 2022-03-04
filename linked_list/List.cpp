@@ -1,5 +1,80 @@
 #include "List.h"
 
+OList::OList(){ head = nullptr; }
+
+OList::~OList(){
+    while(head){
+        Node *d = head;
+        head = head->getNext();
+        delete d, d = nullptr;
+    }   
+}
+
+string OList::toString() const{
+    Node *p = head;
+    string s = "";
+    while(p){
+        s += p->getData() + "->";
+        p = p->getNext(); 
+    }
+    return s + "nullptr\n";
+}
+
+void OList::insert(string value){
+    Node *new_node = new Node(value);
+    Node *p = head, *t = nullptr;
+    if(head == nullptr) head = new_node;
+    else while(p){
+        if(p->getData() >= new_node->getData()){
+            new_node->setNext(p);
+            if(p == head) head = new_node;
+            else t->setNext(new_node);
+            return;
+        }
+        t = p, p = p->getNext();
+        if(p == nullptr) t->setNext(new_node);
+    }
+}
+
+void OList::r(Node* p, Node *c){
+    if(c == nullptr){
+        head = p;
+        return;
+    }
+    r(c,c->getNext());
+    c->setNext(p);
+}
+
+void OList::reverse(){ r(nullptr,head); }
+
+bool OList::contains(string value) const{
+    Node *p = head;
+    while(p){
+        if(p->getData() > value) return false;
+        if(p->getData() == value) return true;
+        p = p->getNext();
+    }
+    return false;
+}
+
+string OList::get(int loc) const{
+    Node *p = head;
+    while(loc-- >  0 and p->getNext()) p = p->getNext();
+    return p->getData();
+}
+
+void OList::remove(int loc){
+    Node *p = head, *t = nullptr;
+    if(loc <= 0) head = p->getNext();
+    else{ 
+        while(loc-- > 0 and p->getNext())
+            t = p, p = p->getNext();
+        t->setNext(p->getNext());
+    }
+    delete p, p = nullptr;
+}
+
+
 List::List(){ head = nullptr; }
 
 List::~List(){
@@ -89,77 +164,4 @@ void List::sort(int a, int b){
         }else left = left->getNext();
         i = i->getNext();
     }
-}
-
-OList::OList(){ head = nullptr; }
-
-OList::~OList(){
-    while(head){
-        Node *d = head;
-        head = head->getNext();
-        delete d, d = nullptr;
-    }   
-}
-
-string OList::toString() const{
-    Node *p = head;
-    string s = "";
-    while(p){
-        s += p->getData() + "-->";
-        p = p->getNext(); 
-    }
-    return s + "nullptr\n";
-}
-
-void OList::insert(string value){
-    Node *new_node = new Node(value);
-    Node *p = head, *t = nullptr;
-    if(head == nullptr) head = new_node;
-    else while(p){
-        if(p->getData() > new_node->getData()){
-            new_node->setNext(p);
-            if(p == head) head = new_node;
-            else t->setNext(new_node);
-            return;
-        }
-        t = p;
-        p = p->getNext();
-    }
-}
-
-void OList::r(Node* p, Node *c){
-    if(c == nullptr){
-        head = p;
-        return;
-    }
-    r(c,c->getNext());
-    c->setNext(p);
-}
-
-void OList::reverse(){ r(nullptr,head); }
-
-bool OList::contains(string value) const{
-    Node *p = head;
-    while(p){
-        if(p->getData() == value) return true;
-        p = p->getNext();
-    }
-    return false;
-}
-
-string OList::get(int loc) const{
-    Node *p = head;
-    while(loc-- >  0 and p->getNext()) p = p->getNext();
-    return p->getData();
-}
-
-void OList::remove(int loc){
-    Node *p = head, *t = nullptr;
-    while(loc-- > 0 and p->getNext()){
-        t = p;
-        p = p->getNext();
-    }
-    if(loc <= 0) head = p->getNext();
-    else t->setNext(p->getNext());
-    delete p, p = nullptr;
 }
