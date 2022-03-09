@@ -1,6 +1,8 @@
 #include "List.h"
 #include <iostream>
+#include <exception>
 
+using std::cerr;
 using std::cout;
 
 int main(){
@@ -16,6 +18,16 @@ int main(){
     */
 
     OList *l1 = new OList();
+    try{
+        l1->get(1);
+    }catch(const std::exception& e){
+        cerr << e.what();
+    }
+    try{
+        l1->remove(1);
+    } catch(const std::exception& e){
+        cerr << e.what();
+    }
     l1->insert("d");
     l1->insert("c");
     l1->insert("b");

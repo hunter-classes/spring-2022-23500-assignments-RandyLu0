@@ -59,12 +59,14 @@ bool OList::contains(string value) const{
 
 string OList::get(int loc) const{
     Node *p = head;
+    if (head == nullptr) throw std::out_of_range("Empty list\n");
     while(loc-- >  0 and p->getNext()) p = p->getNext();
     return p->getData();
 }
 
 void OList::remove(int loc){
     Node *p = head, *t = nullptr;
+    if (head == nullptr) throw std::out_of_range("Empty list\n");
     if(loc <= 0) head = p->getNext();
     else{ 
         while(loc-- > 0 and p->getNext())
@@ -139,7 +141,7 @@ string List::toString() const{
 void List::sort(int a, int b){
     //sort
     if(a == b) return;
-    int k = floor(a + b) / 2;
+    int k = a + b / 2;
     sort(a,k);
     sort(k+1,b);
     

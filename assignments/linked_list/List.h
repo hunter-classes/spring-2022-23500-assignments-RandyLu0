@@ -3,7 +3,7 @@
 #define LIST_H
 
 #include "Node.h"
-#include <cmath>
+#include <stdexcept>
 
 class List{
     private:
