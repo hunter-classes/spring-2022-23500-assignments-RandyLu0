@@ -7,7 +7,9 @@ OList *l = new OList();
 
 TEST_CASE("insert"){
     l->insert("d");
+    CHECK(l->toString() == "d->nullptr\n");
     l->insert("c");
+    CHECK(l->toString() == "c->d->nullptr\n");
     l->insert("b");
     l->insert("a");
     l->insert("z");

@@ -4,6 +4,7 @@
 
 using std::cerr;
 using std::cout;
+using std::exception;
 
 int main(){
     
@@ -20,12 +21,12 @@ int main(){
     OList *l1 = new OList();
     try{
         l1->get(1);
-    }catch(const std::exception& e){
+    }catch(const exception& e){
         cerr << e.what();
     }
     try{
         l1->remove(1);
-    } catch(const std::exception& e){
+    } catch(const exception& e){
         cerr << e.what();
     }
     l1->insert("d");

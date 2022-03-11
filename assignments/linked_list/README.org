@@ -5,6 +5,7 @@
 NOTE: There will be another ongoing assignment starting on March 8 so
 don't leave this one until the last minute. 
 
+* No special steps needed for compiling and running the program
 
 * Folder and files
 
