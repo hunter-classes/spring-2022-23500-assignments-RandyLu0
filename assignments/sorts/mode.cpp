@@ -33,13 +33,13 @@ vector<int> msort(vector<int> v){
     return merge(a,b);
 }
 
-int count(vector<int> v, int value){
+int count(const vector<int> &v, int value){
     int freq = 0;
     for(auto i : v) freq += i == value;
     return freq;
 }
 
-int largest(vector<int> v){
+int largest(const vector<int> &v){
     int m = v[0];
     for(auto i : v) m = m < i ? i : m;
     return m;
@@ -59,6 +59,23 @@ int mode(vector<int> v){
     }
     return m;
 }
+
+/*
+int mode2(const vector<int> &v){
+    int max = largest(v);
+    vector<int> freq(max);
+    for(int i = 0; i < max; i++) freq[i] = 0;
+    for(auto i : v) freq[i-1]++;
+    int m = freq[0];
+    int mode;
+    int index = 0;
+    for(auto i : freq){
+        if(m < i) m = i, mode = index;
+        i++;
+    }
+    return mode+1;
+}
+*/
 
 int main(){
     int size=20;
