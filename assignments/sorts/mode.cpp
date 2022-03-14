@@ -47,9 +47,7 @@ int largest(const vector<int> &v){
 
 int mode(vector<int> v){
     v = msort(v);
-    int m = v[0];
-    int freq = 0;
-    int f = 0;
+    int m = v[0], freq = 0, f = 0;
     for(auto i : v){
         if (i = m) ++f;
         else{ 
@@ -60,33 +58,27 @@ int mode(vector<int> v){
     return m;
 }
 
-/*
 int mode2(const vector<int> &v){
-    int max = largest(v);
-    vector<int> freq(max);
-    for(int i = 0; i < max; i++) freq[i] = 0;
-    for(auto i : v) freq[i-1]++;
-    int m = freq[0];
-    int mode;
-    int index = 0;
+    vector<int> freq(largest(v) + 1);
+    for(auto i : v) freq[i]++;
+    int m = freq[0], mode, index = 0;
     for(auto i : freq){
         if(m < i) m = i, mode = index;
-        i++;
+        index++;
     }
-    return mode+1;
+    return mode;
 }
-*/
 
 int main(){
-    int size=20;
+    int size=2000000;
     int max_val=100;
     srand(time(nullptr));
     std::vector<int> b(size);
     for (int i=0;i<size; i++) b[i] = rand()%max_val;
-    int m = mode(b);
+    int m = mode2(b);
     cout << "mode: " << m << "\nfrequency: " << count(b,m) << "\nlargest: " << largest(b) << "\n";
-    b = msort(b);
-    for(auto i : b) cout << i << " ";
+    //b = msort(b);
+    //for(auto i : b) cout << i << " ";
     cout << "\n";
     return 0;
 }
