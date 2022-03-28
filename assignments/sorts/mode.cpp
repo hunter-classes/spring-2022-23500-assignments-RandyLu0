@@ -65,20 +65,37 @@ int mode2(const vector<int> &v){
     for(auto i : freq){
         if(m < i) m = i, mode = index;
         index++;
-    }
+    }   
     return mode;
 }
 
+vector<int> qsort(vector<int> list){
+    if(list.size() <= 1) return list;
+    vector<int> a, b;
+    for (int i = 1; i < list.size(); i++){
+        if(list[i] < list[0]) a.push_back(list[i]);
+        else b.push_back(list[i]);
+    }
+    a = qsort(a);
+    b = qsort(b);
+    a.push_back(list[0]);
+    for(auto i : b) a.push_back(i);
+    return a;
+}
+
 int main(){
-    int size=2000000;
+    int size=10;
     int max_val=100;
     srand(time(nullptr));
     std::vector<int> b(size);
     for (int i=0;i<size; i++) b[i] = rand()%max_val;
     int m = mode2(b);
     cout << "mode: " << m << "\nfrequency: " << count(b,m) << "\nlargest: " << largest(b) << "\n";
-    //b = msort(b);
-    //for(auto i : b) cout << i << " ";
+    cout << "Original: ";
+    for(auto i : b) cout << i << " ";
+    b = qsort(b);
+    cout << "\nSorted: ";
+    for(auto i : b) cout << i << " ";
     cout << "\n";
     return 0;
 }

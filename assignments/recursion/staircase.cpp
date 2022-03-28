@@ -24,6 +24,7 @@ ex) n = 5 has 13 lists
 #include <bits/stdc++.h>
 using std::cout;
 typedef unsigned long long ll; 
+/*
 #define M 10000000007ll
 
 // memoized
@@ -57,12 +58,28 @@ ll iter(ll n){
     }
     return n <= 3 ? 1 << n - 1 : s;
 }
+*/
+
+ll fib(ll n){
+    ll a = 1, b = 1, total = 0;
+    for(ll i = 0; i < n; i++){
+        total += a + b;
+        if(total % 10 == 7) return total;
+        a = b, b = total;
+    }
+    return -1;
+}
+
 
 int main(){
+    /*
     cout << stairs(11) << "\n";
     cout << iter(3) << "\n";
     cout << stairs(570) << "\n";
     cout << iter(570) << "\n";
     cout << iter(900000) << "\n";
+    */
+    cout << fib(1) << "\n";
+
     return 0;
 }
