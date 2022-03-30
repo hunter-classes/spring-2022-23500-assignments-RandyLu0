@@ -83,6 +83,10 @@ vector<int> qsort(vector<int> list){
     return a;
 }
 
+vector<int> qsort2(vector<int> list, int low, int high){
+    
+}
+
 int main(){
     int size=10;
     int max_val=100;
