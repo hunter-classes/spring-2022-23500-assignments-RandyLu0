@@ -83,23 +83,11 @@ vector<int> qsort(vector<int> list){
     return a;
 }
 
-vector<int> qsort2(vector<int> list, int low, int high){
-    
-}
-
 int main(){
-    int size=10;
+    int size=13000;
     int max_val=100;
-    srand(time(nullptr));
+    srand(1);
     std::vector<int> b(size);
     for (int i=0;i<size; i++) b[i] = rand()%max_val;
-    int m = mode2(b);
-    cout << "mode: " << m << "\nfrequency: " << count(b,m) << "\nlargest: " << largest(b) << "\n";
-    cout << "Original: ";
-    for(auto i : b) cout << i << " ";
-    b = qsort(b);
-    cout << "\nSorted: ";
-    for(auto i : b) cout << i << " ";
-    cout << "\n";
     return 0;
 }
