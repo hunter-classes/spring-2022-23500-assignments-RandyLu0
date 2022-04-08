@@ -81,7 +81,7 @@ vector<int> qsort(vector<int> list){
 
 int main(){
     std::random_device rd;
-    int size=10e6;
+    int size=10e3;
     int max_val=10e5;
     std::vector<int> b(size);
     for (int i=0;i<size; i++) b[i] = rd() % max_val;
