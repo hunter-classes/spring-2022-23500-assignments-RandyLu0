@@ -14,7 +14,6 @@ class List{
         int get(int i) const;
         void insert(int i, int d);
         void remove(int i); 
-        std::string toString() const;
 };
 
 #endif 
