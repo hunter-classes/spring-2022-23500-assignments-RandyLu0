@@ -7,7 +7,7 @@ Stack::~Stack(){ delete stack, stack = nullptr; }
 bool Stack::is_empty() const{ return size; }
 
 int Stack::top() const{ 
-    if(size == 0) throw std::out_of_range("Stack Underflow");
+    if(size == 0) throw std::out_of_range("Empty Stack");
     return stack->get(0); 
 }
 
