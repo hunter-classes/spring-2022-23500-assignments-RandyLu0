@@ -4,7 +4,7 @@ Stack::Stack(){ stack = new List(); size = 0; }
 
 Stack::~Stack(){ delete stack, stack = nullptr; }
 
-bool Stack::is_empty() const{ return size; }
+bool Stack::is_empty() const{ return size == 0; }
 
 int Stack::top() const{ 
     if(size == 0) throw std::out_of_range("Empty Stack");
