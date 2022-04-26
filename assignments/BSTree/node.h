@@ -9,7 +9,10 @@ class Node{
         Node* right;
     public:
         Node();
+        Node(int d, Node* l, Node* r);
         Node(int d);
-}
+        
+
+};
 
 #endif
