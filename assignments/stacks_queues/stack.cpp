@@ -13,7 +13,7 @@ int Stack::top() const{
 
 int Stack::pop(){
     if(size == 0) throw std::out_of_range("Stack Underflow");
-    int temp = stack->get(0);
+    int temp = top();
     stack->remove(0), --size;
     return temp;
 }

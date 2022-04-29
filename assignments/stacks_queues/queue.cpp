@@ -18,12 +18,12 @@ int Queue::front() const{
 int Queue::dequeue(){
     if(is_empty()) throw std::out_of_range("Queue Underflow");
     int t = front();
-    empty = (head = (head + 1) % 5) == tail, full = 0;
+    empty = (head = (head + 1) % 5) == tail, full = false;
     return t;
 }
 
 void Queue::enqueue(int d){
     if(is_full()) throw std::out_of_range("Queue Overflow");
     queue[tail] = d;
-    full = (tail = (tail + 1) % 5) == head, empty = 0;
+    full = (tail = (tail + 1) % 5) == head, empty = false;
 }
