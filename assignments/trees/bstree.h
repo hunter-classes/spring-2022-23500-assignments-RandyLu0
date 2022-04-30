@@ -8,17 +8,15 @@ using std::string;
 
 class BSTree{
 private:
-    
+    Node *root;
+    int rsearch(int key, Node* root);
+    void insert(int key, Node* root);
+    void clear(Node*);
 public:
     BSTree();
     ~BSTree();
     int rsearch(int key);
     void insert(int key);
-    void setup();
-    Node *root;
-    int rsearch(int key, Node* root);
-    void insert(int key, Node* root);
-    void clear(Node*);
 };
 
 #endif
