@@ -7,10 +7,8 @@ using std::cout;
 int main(){
 
     BSTree *t = new BSTree();
-    bool f = t->root == nullptr;
-    cout << f << "\n";
 
-    t->insert(0);
+    t->insert(0,t->root);
 
     delete t, t = nullptr;
     return 0;

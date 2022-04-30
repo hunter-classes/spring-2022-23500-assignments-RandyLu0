@@ -23,14 +23,11 @@ int BSTree::rsearch(int key, Node* root){
 
 int BSTree::rsearch(int key){ return rsearch(key, root); }
 
-void BSTree::insert(int key, Node* root){
-    if(root == nullptr){ 
-        Node* n = new Node(key); 
-        root = n;
+void BSTree::insert(int key, Node* current){
+    if(root == nullptr){  
+        this->root = new Node(key);
         return;
     }
-    else cout << "WTF";
-    /*
     if(root->getData() > key){
         if(root->getLeft() == nullptr){
             Node *v = new Node(key);
@@ -46,7 +43,7 @@ void BSTree::insert(int key, Node* root){
         }else insert(key, root->getRight());
     }
     if(root->getData() == key) throw std::out_of_range("key already in tree");
-    */
+
 }
 
 void BSTree::insert(int key){ insert(key, root); }
