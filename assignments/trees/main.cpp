@@ -6,7 +6,6 @@ using std::cout;
 int main(){
     BSTree *t = new BSTree();
 
-    for(int i = 0; i < 7; i++) t->insert(i);
 
     try{
         t->insert(5);
@@ -16,6 +15,6 @@ int main(){
         std::cerr << e.what() << '\n';
     }
     delete t, t = nullptr;
-    
+
     return 0;
 }
