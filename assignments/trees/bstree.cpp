@@ -36,14 +36,13 @@ void BSTree::insert(int key, Node* root){
 void BSTree::remove(int key){
     if(root == nullptr) throw std::out_of_range("empty tree");
     Node *previous = nullptr, *current = root;
-
     //moves to correct vertex 
     while(current != nullptr and current->getData() != key){
         previous = current;
         if(current->getData() > key) current = current->getLeft();
         else if(current->getData() < key) current = current->getRight();
     } if(current == nullptr) throw std::out_of_range("key not found");
-
+    //removal
     int c = current->getData();
     Node *l = current->getLeft(), *r = current->getRight();
     //0 children 
