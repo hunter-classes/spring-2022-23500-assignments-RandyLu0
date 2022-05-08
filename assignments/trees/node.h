@@ -5,13 +5,14 @@
 class Node{
 private:
     int data;
-    Node *left;
-    Node *right;
+    Node* left;
+    Node* right;
 public:
-    Node(int data);
-    int getData();
-    Node *getLeft();
-    Node *getRight();
+    Node(int key) : data(key), left(nullptr), right(nullptr) {};
+    int getData() const;
+    void setData(int key);
+    Node* getLeft() const;
+    Node* getRight() const;
     void setLeft(Node *l);
     void setRight(Node *r);
 };

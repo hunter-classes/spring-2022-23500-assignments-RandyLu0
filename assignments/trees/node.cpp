@@ -1,15 +1,12 @@
 #include "node.h"
 
-Node::Node(int data){
-    this->data = data;
-    left = nullptr, right = nullptr;
-}
+int Node::getData() const{ return data; }
 
-int Node::getData(){ return data; }
+void Node::setData(int key){ data = key;}
 
-Node *Node::getLeft(){ return left; }
+Node* Node::getLeft() const{ return left; }
 
-Node *Node::getRight(){ return right; }
+Node* Node::getRight() const{ return right; }
 
 void Node::setLeft(Node *l){ left = l; }
 
