@@ -56,15 +56,14 @@ void BSTree::remove(int key){
     }
     //1 child
     if(l == nullptr or r == nullptr){
-        if(current == root) 
-            root = root->getLeft() == nullptr ? root->getRight() : root->getLeft();
+        if(current == root) root = l == nullptr ? r : l;
         else{ Node* next = l == nullptr ? r : l; 
             if(c > previous->getData()) previous->setRight(next);
             else if(c < previous->getData()) previous->setLeft(next); 
         } delete current, current = nullptr; return;
     }
     //2 children by in order successor
-    Node *successor = current->getRight();
+    Node *successor = r;
     while(successor->getLeft() != nullptr) successor = successor->getLeft();
     int temp = successor->getData();
     remove(temp); current->setData(temp);

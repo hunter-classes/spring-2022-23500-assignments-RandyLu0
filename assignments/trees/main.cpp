@@ -17,6 +17,12 @@ int main(){
 
     try{
         t->remove(10);
+        t->remove(20);
+        t->remove(30);
+        t->remove(15);
+        t->remove(5);
+        t->remove(3);
+        t->remove(6);
         cout << t->rsearch(30) << "\n";
         cout << t->height() << "\n";
     }
