@@ -34,9 +34,8 @@ void BSTree::insert(int key, Node* root){
 }
 
 void BSTree::remove(int key){
-    if(root == nullptr) throw std::out_of_range("empty tree");
     Node *previous = nullptr, *current = root;
-    //moves to correct vertex 
+    //moves to correct verticies 
     while(current != nullptr and current->getData() != key){
         previous = current;
         if(current->getData() > key) current = current->getLeft();

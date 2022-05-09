@@ -16,7 +16,7 @@ private:
 public:
     BSTree() : root(nullptr) {};
     ~BSTree();
-    int rsearch (int key) const;
+    int rsearch(int key) const;
     void insert(int key);
     void remove(int key);
     int height() const;
