@@ -13,6 +13,8 @@ private:
     void insert(int key, Node* root);
     void clear(Node* root);
     int height(Node* root) const;
+    int leaves(Node* root) const;
+    int levelsum(Node* root, int depth) const;
 public:
     BSTree() : root(nullptr) {};
     ~BSTree();
@@ -20,6 +22,8 @@ public:
     void insert(int key);
     void remove(int key);
     int height() const;
+    int leaves() const;
+    int levelsum(int depth) const;
 };
 
 #endif

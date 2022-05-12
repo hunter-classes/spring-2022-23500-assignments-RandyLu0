@@ -14,7 +14,9 @@ int main(){
     t->insert(5);
     t->insert(3);
     t->insert(6);
-
+    cout << t->height() << "\n";
+    cout << t->levelsum(2) << "\n";
+    cout << t->leaves() << "\n";
     try{
         t->remove(10);
         t->remove(20);
