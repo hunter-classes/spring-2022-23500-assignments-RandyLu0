@@ -7,13 +7,10 @@ using std::string;
 
 class Person{
     private:
-        string first; // first name
-        string last; // last name
-        int idnum; // some id number
+        string name; 
     public:
-        Person(string f, string l, int n) 
-            : first(f), last(l), idnum(n) {};
+        Person(string name, int n) : name(name) {};
         string get_name() const;
-        int get_id() const;
 };
+
 #endif
