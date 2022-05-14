@@ -1,4 +1,4 @@
-#include "map.h"
+#include "set.h"
 
 Dictionary::Dictionary(){
     for(int i = 0; i < SIZE; i++) table[i] = new List(); 

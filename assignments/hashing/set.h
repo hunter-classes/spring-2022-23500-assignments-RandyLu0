@@ -1,5 +1,5 @@
 #pragma once
-#ifndef MAP_H
+#ifndef SET_H
 
 #include "person.h"
 #include "list.h"
