@@ -6,14 +6,13 @@
 
 class Node{
     private:
-        Person human;
+        Person* human;
         Node *next;
     public:
-        Node();
-        Node(Person p);
-        void setData(Person p);
+        Node() : human(nullptr), next(nullptr) {};
+        Node(Person* p) : human(p), next(nullptr) {};
         void setNext(Node *n);
-        Person getData() const;
+        Person* getData() const;
         Node *getNext() const;
 };
 

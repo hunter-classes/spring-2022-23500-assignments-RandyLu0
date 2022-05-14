@@ -63,10 +63,8 @@ void BSTree::remove(int key){
         } delete current, current = nullptr; return;
     }
     //2 children by in order successor
-    Node *successor = r;
-    while(successor->getLeft() != nullptr) successor = successor->getLeft();
-    int temp = successor->getData();
-    remove(temp); current->setData(temp);
+    Node *s = r; while(s->getLeft() != nullptr) s = s->getLeft();
+    int temp = s->getData(); remove(temp); current->setData(temp);
 }
 
 int BSTree::height() const{ return height(root); }
@@ -97,6 +95,3 @@ int BSTree::levelsum(Node* root, int depth) const{
     return levelsum(root->getLeft(), depth - 1) + 
            levelsum(root->getRight(), depth - 1);
 }
-
-
-

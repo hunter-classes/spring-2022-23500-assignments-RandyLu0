@@ -59,7 +59,7 @@ issue (you know if this applies to you since we've spoken).
 - count leaves
 - height of a tree (a tree with just the root can be height 0 or 1,
   whichever you prefer)
-- sum at given level level
+- sum at given level
 - tree pretty printer (this is a challenge, print out the tree using
-  tabs to make it look nice
+  tabs to make it look nice)
 - cousins - true if two nodes at same level
