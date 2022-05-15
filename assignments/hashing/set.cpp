@@ -14,10 +14,7 @@ int Dictionary::hash(string key) const{
     return value % SIZE;
 }
 
-void Dictionary::insert(Person* a){
-    int value = hash(a->get_name());
-    table[value]->insert(a);
-}
+void Dictionary::insert(Person* a){ table[hash(a->get_name())]->insert(a); }
 
 string Dictionary::keys() const{
     string list = "";
