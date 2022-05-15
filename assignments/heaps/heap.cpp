@@ -18,6 +18,7 @@ void heapify(int arr[], int i, int size){
 
 //builds a max-heap from an array
 void build(int arr[], int size){
+    //leaves are heaps
     for(int i = size / 2 - 1; i >= 0; i--) heapify(arr, i, size);
 }
 
@@ -26,7 +27,7 @@ void heapsort(int arr[], int size){
     build(arr,size);
     for(int i = 1; i < size; i++){
         SWAP(arr[0],arr[size-i]);
-        heapify(arr,0,size-i);
+        heapify(arr, 0, size-i);
     }
 }
 
@@ -34,7 +35,7 @@ void heapsort(int arr[], int size){
 bool is_heap(int arr[], int size){
     int l, r, max;
     for(int i = 0; i < size / 2 - 1; i++){
-        l = 2*i+1, r = 2*i+2, max = r >= SIZE ?  MAX2(arr[i], arr[l]) : MAX3(arr[i], arr[l], arr[r]);
+        l=2*i+1, r=2*i+2, max= r>=SIZE ? MAX2(arr[i],arr[l]) : MAX3(arr[i],arr[l],arr[r]);
         if(max != arr[i]) return false;
     } return true;
 }

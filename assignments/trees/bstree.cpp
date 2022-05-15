@@ -1,8 +1,4 @@
 #include "bstree.h"
-#include <stdexcept>
-
-#define MAX(A,B) A > B ? A : B
-using std::out_of_range;
 
 BSTree::~BSTree(){ clear(root); }
 
@@ -71,13 +67,15 @@ int BSTree::height() const{ return height(root); }
 
 int BSTree::height(Node* root) const{
     if(root == nullptr) return 0;
-    return MAX(1 + height(root->getLeft()), 1 + height(root->getRight()));
+    int lheight = root->getLeft() ? 1 + height(root->getLeft()) : 0, 
+    rheight = root->getRight() ? 1 + height(root->getRight()) : 0;
+    return MAX(lheight, rheight);
 }
 
 int BSTree::leaves() const{ return leaves(root); }
 
 int BSTree::leaves(Node* root) const{
-    if(root == nullptr) throw out_of_range("empty tree");
+    if(root == nullptr) return 0;
     Node *l = root->getLeft(), *r = root->getRight();
     if(l == nullptr and r == nullptr) return 1;
     return leaves(l) + leaves(r);
@@ -85,13 +83,14 @@ int BSTree::leaves(Node* root) const{
 
 int BSTree::levelsum(int depth) const{ 
     if(root == nullptr) throw out_of_range("empty tree");
-    if(depth < 0) throw out_of_range("invalid level");
+    if(depth < 0 or height() < depth) throw out_of_range("invalid level");
     return levelsum(root, depth); 
 }
 
 int BSTree::levelsum(Node* root, int depth) const{
-    if(root == nullptr) throw out_of_range("invalid level"); //too deep
     if(depth == 0) return root->getData();
-    return levelsum(root->getLeft(), depth - 1) + 
-           levelsum(root->getRight(), depth - 1);
+    int sum = 0;
+    sum += root->getLeft() ? levelsum(root->getLeft(), depth - 1) : 0;
+    sum += root->getRight() ? levelsum(root->getRight(), depth - 1) : 0;
+    return sum;
 }

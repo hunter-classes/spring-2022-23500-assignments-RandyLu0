@@ -4,7 +4,11 @@
 
 #include "node.h"
 #include <string>
+#include <stdexcept>
 using std::string;
+using std::out_of_range;
+
+#define MAX(A,B) A > B ? A : B
 
 class BSTree{
 private:
