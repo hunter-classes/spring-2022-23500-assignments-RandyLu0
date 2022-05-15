@@ -6,15 +6,14 @@
 #include <stdexcept>
 
 class List{
-    private:
-        Node *head;
-    public:
-        ~List();
-        List() : head(nullptr) {};
-        Person* find(string key) const;
-        void insert(Person* a);
-        void remove(int index); 
-        string names() const;
+private:
+    Node *head;
+public:
+    ~List();
+    List() : head(nullptr) {};
+    Person* find(string key) const;
+    void insert(Person* a);
+    string names() const;
 };
 
 #endif 

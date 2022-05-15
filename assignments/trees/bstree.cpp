@@ -31,36 +31,35 @@ void BSTree::insert(int key, Node* root){
 }
 
 void BSTree::remove(int key){
-    Node *previous = nullptr, *current = root;
+    Node *previous = nullptr, *root = this->root;
     //moves to correct verticies 
-    while(current != nullptr and current->getData() != key){
-        previous = current;
-        if(current->getData() > key) current = current->getLeft();
-        else if(current->getData() < key) current = current->getRight();
-    } if(current == nullptr) throw out_of_range("key not found");
+    while(root != nullptr and root->getData() != key){
+        previous = root;
+        root = root->getData() > key ? root->getLeft() : root->getRight();
+    } if(root == nullptr) throw out_of_range("key not found");
     //removal
-    int c = current->getData();
-    Node *l = current->getLeft(), *r = current->getRight();
+    int c = root->getData();
+    Node *l = root->getLeft(), *r = root->getRight();
     //0 children 
     if(l == nullptr and r == nullptr){
-        if(current == root) delete root, root = nullptr;
+        if(root == this->root) delete this->root, this->root = nullptr;
         else{ 
             if(c > previous->getData()) previous->setRight(nullptr);
             else if(c < previous->getData()) previous->setLeft(nullptr);
-            delete current, current = nullptr; 
+            delete root, root = nullptr; 
         } return;
     }
     //1 child
     if(l == nullptr or r == nullptr){
-        if(current == root) root = l == nullptr ? r : l;
+        if(root == this->root) this->root = l == nullptr ? r : l;
         else{ Node* next = l == nullptr ? r : l; 
             if(c > previous->getData()) previous->setRight(next);
             else if(c < previous->getData()) previous->setLeft(next); 
-        } delete current, current = nullptr; return;
+        } delete root, root = nullptr; return;
     }
     //2 children by in order successor
     Node *s = r; while(s->getLeft() != nullptr) s = s->getLeft();
-    int temp = s->getData(); remove(temp); current->setData(temp);
+    int temp = s->getData(); remove(temp); root->setData(temp);
 }
 
 int BSTree::height() const{ return height(root); }

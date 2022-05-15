@@ -5,15 +5,15 @@
 #include "person.h"
 
 class Node{
-    private:
-        Person* human;
-        Node *next;
-    public:
-        Node() : human(nullptr), next(nullptr) {};
-        Node(Person* p) : human(p), next(nullptr) {};
-        void setNext(Node *n);
-        Person* getData() const;
-        Node *getNext() const;
+private:
+    Person* human;
+    Node *next;
+public:
+    Node() : human(nullptr), next(nullptr) {};
+    Node(Person* p) : human(p), next(nullptr) {};
+    void setNext(Node *n);
+    Person* getData() const;
+    Node *getNext() const;
 };
 
 #endif
