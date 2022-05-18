@@ -9,6 +9,6 @@
 void heapify(int arr[], int i, int size);
 void build(int arr[], int size);
 void heapsort(int arr[], int size);
-bool is_heap(int arr[], int size);
+bool is_heap(const int arr[], int size);
 
 #endif

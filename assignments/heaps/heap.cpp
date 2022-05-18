@@ -1,8 +1,5 @@
 #include "heap.h"
 
-#include <bits/stdc++.h>
-using namespace std;
-
 //maintains max-heap property
 void heapify(int arr[], int i, int size){
     int max, mi, l = 2*i+1, r = 2*i+2;
@@ -32,7 +29,7 @@ void heapsort(int arr[], int size){
 }
 
 //checks if array is max-heap
-bool is_heap(int arr[], int size){
+bool is_heap(const int arr[], int size){
     int l, r, max;
     for(int i = 0; i < size / 2 - 1; i++){
         l=2*i+1, r=2*i+2, max= r>=SIZE ? MAX2(arr[i],arr[l]) : MAX3(arr[i],arr[l],arr[r]);
