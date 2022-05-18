@@ -4,9 +4,8 @@
 using std::out_of_range;
 
 List::~List(){
-    while(head){
-        Node *d = head;
-        head = head->getNext();
+    while(head != nullptr){
+        Node *d = head; head = head->getNext();
         delete d, d = nullptr;
     }   
 }

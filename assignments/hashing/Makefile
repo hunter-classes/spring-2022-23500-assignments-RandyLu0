@@ -6,7 +6,7 @@ main.o: set.h main.cpp
 	g++ -c main.cpp
 node.o: node.cpp node.h
 	g++ -c node.cpp 
-tests.o: bstree.h tests.cpp 
+tests.o: set.h tests.cpp 
 	g++ -c tests.cpp
 set.o: set.cpp set.h
 	g++ -c set.cpp

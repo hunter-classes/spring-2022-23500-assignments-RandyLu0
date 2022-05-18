@@ -6,11 +6,13 @@
 using std::string;
 
 class Person{
-    private:
-        string name; 
-    public:
-        Person(string name, int n) : name(name) {};
-        string get_name() const;
+private:
+    string name; 
+    int id;
+public:
+    Person(string name, int id) : name(name), id(id) {};
+    string get_name() const;
+    int get_id() const;
 };
 
 #endif
